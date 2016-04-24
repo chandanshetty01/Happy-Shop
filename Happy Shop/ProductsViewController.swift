@@ -63,12 +63,10 @@ class ProductsViewController : UIViewController,UICollectionViewDelegate,UIColle
         return 1
     }
     
-    //2
     internal func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.products.count
     }
     
-    //3
     internal func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("product_cell_identifier", forIndexPath: indexPath) as! ProductCollectionViewCell
@@ -78,5 +76,18 @@ class ProductsViewController : UIViewController,UICollectionViewDelegate,UIColle
         cell.product = product
 
         return cell
+    }
+    
+    //MARK: Seque
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "product_detail_seque_identifier") {
+            //get a reference to the destination view controller
+            let destinationVC:ProductDetailViewController = segue.destinationViewController as! ProductDetailViewController
+            let productCell = sender as! ProductCollectionViewCell
+            let product = productCell.product
+            
+            //set properties on the destination view controller
+            destinationVC.product = product!
+        }
     }
 }

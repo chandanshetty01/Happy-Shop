@@ -13,8 +13,8 @@ class ProductFactory {
     func productsFromDictionaryArray(array:NSArray) -> [Product] {
         var products: [Product] = []
         for dictionary in array {
-            if let flavor = Product(dictionary:dictionary as! NSDictionary) {
-                products.append(flavor)
+            if let product = Product(dictionary:dictionary as! NSDictionary) {
+                products.append(product)
             }
         }
         return products

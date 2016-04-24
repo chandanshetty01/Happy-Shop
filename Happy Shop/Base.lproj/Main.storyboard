@@ -205,6 +205,7 @@
                                             <outlet property="priceLabel" destination="sWH-3K-phh" id="VPf-F8-SI0"/>
                                             <outlet property="productNameLabel" destination="FNn-CV-yBt" id="9CP-21-3EQ"/>
                                             <outlet property="saleLabel" destination="Bgp-sV-Fx9" id="Fbd-Rr-4Lb"/>
+                                            <segue destination="jxY-RG-d15" kind="show" identifier="product_detail_seque_identifier" id="m5I-Zi-g8I"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -230,6 +231,93 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBF-DG-sxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2232" y="-329"/>
+        </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="Fth-Sb-xUU">
+            <objects>
+                <viewController id="jxY-RG-d15" customClass="ProductDetailViewController" customModule="Happy_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cDB-42-GPF"/>
+                        <viewControllerLayoutGuide type="bottom" id="UYq-Gi-tqJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TSM-TJ-iQq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1db-I5-dbb">
+                                <rect key="frame" x="20" y="10" width="560" height="250"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLv-wT-W5h">
+                                <rect key="frame" x="30" y="268" width="540" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDW-bp-lqc">
+                                <rect key="frame" x="30" y="297" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON SALE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34J-Vx-p5x">
+                                <rect key="frame" x="500" y="297" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ8-vC-DK0">
+                                <rect key="frame" x="20" y="326" width="560" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add to Cart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToCartButtonAction:" destination="jxY-RG-d15" eventType="touchUpInside" id="cVu-IF-0Wp"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eU-zZ-OFX">
+                                <rect key="frame" x="20" y="364" width="560" height="236"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JLv-wT-W5h" firstAttribute="top" secondItem="1db-I5-dbb" secondAttribute="bottom" constant="8" id="31p-DH-FbF"/>
+                            <constraint firstItem="1db-I5-dbb" firstAttribute="width" secondItem="TSM-TJ-iQq" secondAttribute="width" constant="-40" id="3Kk-Jd-bYc"/>
+                            <constraint firstItem="vDW-bp-lqc" firstAttribute="top" secondItem="JLv-wT-W5h" secondAttribute="bottom" constant="8" id="6cW-AS-Vur"/>
+                            <constraint firstItem="1eU-zZ-OFX" firstAttribute="bottom" secondItem="TSM-TJ-iQq" secondAttribute="bottomMargin" id="8Qj-Rb-6wZ"/>
+                            <constraint firstItem="1db-I5-dbb" firstAttribute="centerX" secondItem="TSM-TJ-iQq" secondAttribute="centerX" id="ACC-Bd-GYE"/>
+                            <constraint firstItem="1db-I5-dbb" firstAttribute="height" secondItem="TSM-TJ-iQq" secondAttribute="height" constant="-350" id="Bv1-r6-YXh">
+                                <variation key="heightClass=compact" constant="-250"/>
+                            </constraint>
+                            <constraint firstItem="SZ8-vC-DK0" firstAttribute="width" secondItem="1db-I5-dbb" secondAttribute="width" id="Cq6-Ez-jYz"/>
+                            <constraint firstItem="JLv-wT-W5h" firstAttribute="width" secondItem="1db-I5-dbb" secondAttribute="width" constant="-20" id="ODj-36-J4x"/>
+                            <constraint firstItem="1eU-zZ-OFX" firstAttribute="width" secondItem="1db-I5-dbb" secondAttribute="width" id="QQt-lU-cgx"/>
+                            <constraint firstItem="SZ8-vC-DK0" firstAttribute="top" secondItem="vDW-bp-lqc" secondAttribute="bottom" constant="8" id="S9Q-XK-16Q"/>
+                            <constraint firstItem="1eU-zZ-OFX" firstAttribute="centerX" secondItem="1db-I5-dbb" secondAttribute="centerX" id="XWv-9f-5CJ"/>
+                            <constraint firstItem="34J-Vx-p5x" firstAttribute="top" secondItem="JLv-wT-W5h" secondAttribute="bottom" constant="8" id="dcb-qH-VGl"/>
+                            <constraint firstItem="JLv-wT-W5h" firstAttribute="centerX" secondItem="1db-I5-dbb" secondAttribute="centerX" id="gq7-F9-exi"/>
+                            <constraint firstItem="34J-Vx-p5x" firstAttribute="trailing" secondItem="JLv-wT-W5h" secondAttribute="trailing" id="kWh-fd-GOa"/>
+                            <constraint firstItem="1eU-zZ-OFX" firstAttribute="top" secondItem="SZ8-vC-DK0" secondAttribute="bottom" constant="8" id="mDv-Qu-v1I"/>
+                            <constraint firstItem="vDW-bp-lqc" firstAttribute="leading" secondItem="JLv-wT-W5h" secondAttribute="leading" id="nrF-3w-DXc"/>
+                            <constraint firstItem="1db-I5-dbb" firstAttribute="top" secondItem="cDB-42-GPF" secondAttribute="bottom" constant="10" id="ovf-tm-uqs"/>
+                            <constraint firstItem="SZ8-vC-DK0" firstAttribute="centerX" secondItem="1db-I5-dbb" secondAttribute="centerX" id="pIf-QI-kQf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addToCartButton" destination="SZ8-vC-DK0" id="xq4-fG-uMX"/>
+                        <outlet property="imageView" destination="1db-I5-dbb" id="bkj-jL-CcW"/>
+                        <outlet property="priceLabel" destination="vDW-bp-lqc" id="o7q-Cw-pel"/>
+                        <outlet property="productDescription" destination="1eU-zZ-OFX" id="W46-nA-eQj"/>
+                        <outlet property="productNameLabel" destination="JLv-wT-W5h" id="NTY-0f-xfO"/>
+                        <outlet property="saleLabel" destination="34J-Vx-p5x" id="FwI-oW-yuO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFB-zJ-bBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2862" y="-329"/>
         </scene>
     </scenes>
     <resources>

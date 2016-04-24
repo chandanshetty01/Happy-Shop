@@ -26,6 +26,8 @@
 		A3BB6C0B1CCCF1100049733A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C091CCCF1100049733A /* ProductCollectionViewCell.swift */; };
 		A3BB6C0D1CCCF48D0049733A /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C0C1CCCF48D0049733A /* ProductFactory.swift */; };
 		A3BB6C0E1CCCF48D0049733A /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C0C1CCCF48D0049733A /* ProductFactory.swift */; };
+		A3BB6C101CCD140E0049733A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C0F1CCD140E0049733A /* ProductDetailViewController.swift */; };
+		A3BB6C111CCD140E0049733A /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C0F1CCD140E0049733A /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		A3BB6C061CCCEE400049733A /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		A3BB6C091CCCF1100049733A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3BB6C0C1CCCF48D0049733A /* ProductFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
+		A3BB6C0F1CCD140E0049733A /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		B74F44F3594BCEB7FEEA4344 /* Pods_Happy_ShopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Happy_ShopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37B5B27C31ED956830CB9B9 /* Pods-Happy ShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Happy ShopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Happy ShopTests/Pods-Happy ShopTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +137,7 @@
 				A3BB6BD71CCCA19B0049733A /* AppDelegate.swift */,
 				A3BB6C041CCCED7C0049733A /* CategoriesViewController.swift */,
 				A3BB6C061CCCEE400049733A /* ProductsViewController.swift */,
+				A3BB6C0F1CCD140E0049733A /* ProductDetailViewController.swift */,
 				A3BB6C091CCCF1100049733A /* ProductCollectionViewCell.swift */,
 				A3BB6BDB1CCCA19B0049733A /* SecondViewController.swift */,
 				A3BB6BDD1CCCA19B0049733A /* Main.storyboard */,
@@ -386,6 +390,7 @@
 				A3BB6BFD1CCCA7CF0049733A /* Category.swift in Sources */,
 				A3BB6C031CCCDDA80049733A /* CategoryFactory.swift in Sources */,
 				A3BB6BFB1CCCA6480049733A /* Product.swift in Sources */,
+				A3BB6C101CCD140E0049733A /* ProductDetailViewController.swift in Sources */,
 				A3BB6BD81CCCA19B0049733A /* AppDelegate.swift in Sources */,
 				A3BB6C0A1CCCF1100049733A /* ProductCollectionViewCell.swift in Sources */,
 				A3BB6C051CCCED7C0049733A /* CategoriesViewController.swift in Sources */,
@@ -398,6 +403,7 @@
 			files = (
 				A3BB6C0E1CCCF48D0049733A /* ProductFactory.swift in Sources */,
 				A3BB6C081CCCEE400049733A /* ProductsViewController.swift in Sources */,
+				A3BB6C111CCD140E0049733A /* ProductDetailViewController.swift in Sources */,
 				A3BB6C0B1CCCF1100049733A /* ProductCollectionViewCell.swift in Sources */,
 				A3BB6BEF1CCCA19B0049733A /* Happy_ShopTests.swift in Sources */,
 			);
