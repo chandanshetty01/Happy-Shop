@@ -9,24 +9,21 @@
 import Foundation
 import UIKit
 import Alamofire
+import MBProgressHUD
 
 class ProductsViewController : UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private let productFactory = ProductFactory()
     var products: [Product] = []
-    
-    var category:String? {
-        didSet {
-            loadProducts()
-        }
-    }
+    var category:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = self.category
+
+        loadProducts()
         self.navigationController?.navigationBarHidden = false
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,8 +32,8 @@ class ProductsViewController : UIViewController,UICollectionViewDelegate,UIColle
     }
     
     private func loadProducts(){
-        self.navigationController?.title = self.category
-
+        showLoadingHUD()
+        
         Alamofire.request(.GET, "http://sephora-mobile-takehome-2.herokuapp.com/api/v1/products.json", parameters: ["category": self.category!])
             .responseJSON { response in
                 
@@ -51,11 +48,11 @@ class ProductsViewController : UIViewController,UICollectionViewDelegate,UIColle
     }
     
     private func showLoadingHUD() {
-        
+        MBProgressHUD.showHUDAddedTo(self.collectionView, animated: true)
     }
     
     private func hideLoadingHUD() {
-        
+        MBProgressHUD.hideAllHUDsForView(self.collectionView, animated: true)
     }
 
     //MARK : Collection View delegates

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import MBProgressHUD
 
 class ProductDetailViewController : UIViewController{
     
@@ -49,9 +50,13 @@ class ProductDetailViewController : UIViewController{
         let placeholderImage = UIImage(named: "placeholder")!
         let URL = NSURL(string: self.product!.imageURL)!
         imageView.af_setImageWithURL(URL, placeholderImage: placeholderImage)
+        
+        self.title = product!.name
     }
     
     func loadProduct(){
+        showLoadingHUD()
+        
         let urlString = "http://sephora-mobile-takehome-2.herokuapp.com/api/v1/products/\(self.product!.id).json"
         Alamofire.request(.GET,urlString, parameters: nil)
             .responseJSON { response in
@@ -70,11 +75,11 @@ class ProductDetailViewController : UIViewController{
     }
 
     private func showLoadingHUD() {
-        
+         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     }
     
     private func hideLoadingHUD() {
-        
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
     }
 
     @IBAction func addToCartButtonAction(sender: AnyObject) {

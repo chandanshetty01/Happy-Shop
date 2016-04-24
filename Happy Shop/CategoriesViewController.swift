@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
 
 class CategoriesViewController : UIViewController ,UITableViewDelegate{
 
@@ -18,7 +19,8 @@ class CategoriesViewController : UIViewController ,UITableViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Categories"
+
         loadCategories();
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -50,11 +52,11 @@ class CategoriesViewController : UIViewController ,UITableViewDelegate{
     }
     
     private func showLoadingHUD() {
-
+        MBProgressHUD.showHUDAddedTo(self.tableView, animated: true)
     }
     
     private func hideLoadingHUD() {
-        
+        MBProgressHUD.hideAllHUDsForView(self.tableView, animated: true)
     }
     
     // MARK: TableViewDelegates
