@@ -17,7 +17,6 @@
 		A3BB6BEF1CCCA19B0049733A /* Happy_ShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BEE1CCCA19B0049733A /* Happy_ShopTests.swift */; };
 		A3BB6BFB1CCCA6480049733A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BFA1CCCA6480049733A /* Product.swift */; };
 		A3BB6BFD1CCCA7CF0049733A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BFC1CCCA7CF0049733A /* Category.swift */; };
-		A3BB6C001CCCAA4B0049733A /* HSSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BFF1CCCAA4B0049733A /* HSSession.swift */; };
 		A3BB6C031CCCDDA80049733A /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C021CCCDDA80049733A /* CategoryFactory.swift */; };
 		A3BB6C051CCCED7C0049733A /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C041CCCED7C0049733A /* CategoriesViewController.swift */; };
 		A3BB6C071CCCEE400049733A /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C061CCCEE400049733A /* ProductsViewController.swift */; };
@@ -57,7 +56,6 @@
 		A3BB6BF01CCCA19B0049733A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3BB6BFA1CCCA6480049733A /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A3BB6BFC1CCCA7CF0049733A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		A3BB6BFF1CCCAA4B0049733A /* HSSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSSession.swift; sourceTree = "<group>"; };
 		A3BB6C021CCCDDA80049733A /* CategoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFactory.swift; sourceTree = "<group>"; };
 		A3BB6C041CCCED7C0049733A /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		A3BB6C061CCCEE400049733A /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				A3BB6C011CCCDD980049733A /* Factories */,
-				A3BB6BFE1CCCAA280049733A /* Session */,
 				A3BB6BF91CCCA62B0049733A /* Models */,
 				A3BB6BD71CCCA19B0049733A /* AppDelegate.swift */,
 				A3BB6C041CCCED7C0049733A /* CategoriesViewController.swift */,
@@ -164,14 +161,6 @@
 				A3BB6BFC1CCCA7CF0049733A /* Category.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		A3BB6BFE1CCCAA280049733A /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				A3BB6BFF1CCCAA4B0049733A /* HSSession.swift */,
-			);
-			name = Session;
 			sourceTree = "<group>";
 		};
 		A3BB6C011CCCDD980049733A /* Factories */ = {
@@ -384,7 +373,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BB6BDC1CCCA19B0049733A /* SecondViewController.swift in Sources */,
-				A3BB6C001CCCAA4B0049733A /* HSSession.swift in Sources */,
 				A3BB6C0D1CCCF48D0049733A /* ProductFactory.swift in Sources */,
 				A3BB6C071CCCEE400049733A /* ProductsViewController.swift in Sources */,
 				A3BB6BFD1CCCA7CF0049733A /* Category.swift in Sources */,

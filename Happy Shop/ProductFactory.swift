@@ -10,6 +10,7 @@ import Foundation
 
 class ProductFactory {
     
+    //This method will create the array of Product objects
     func productsFromDictionaryArray(array:NSArray) -> [Product] {
         var products: [Product] = []
         for dictionary in array {

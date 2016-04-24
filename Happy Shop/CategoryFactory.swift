@@ -10,6 +10,7 @@ import Foundation
 
 class CategoryFactory {
     
+    //This method will create the array of Category objects
     func categoriesFromDictionaryArray(array:NSArray) -> [Category] {
         var Categories: [Category] = []
         for dictionary in array {

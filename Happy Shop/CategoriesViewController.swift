@@ -19,8 +19,6 @@ class CategoriesViewController : UIViewController ,UITableViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Categories"
-
         loadCategories();
         // Do any additional setup after loading the view, typically from a nib.
     }
