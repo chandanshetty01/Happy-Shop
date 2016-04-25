@@ -46,19 +46,25 @@ class SQLiteDataStore {
             })
     }
     
-     func insert(cartItem:CartItem){
+    func insert(cartItem:CartItem){
         
-        let insert = users.insert(id <- cartItem.product.id,
-                                  name <- cartItem.product.name,
-                                  category <- cartItem.product.category,
-                                  price <- Float64(cartItem.product.price),
-                                  imageURL <- cartItem.product.imageURL,
-                                  description <- cartItem.product.description!,
-                                  underSale <- cartItem.product.underSale,
-                                  quantity <- cartItem.quantity)
-        try! db.run(insert)
-        
+        let cart =  users.filter(id == cartItem.product.id)
+        let count =  db.scalar(cart.count)
+        if count == 0{
+            let insert = users.insert(id <- cartItem.product.id,
+                                      name <- cartItem.product.name,
+                                      category <- cartItem.product.category,
+                                      price <- Float64(cartItem.product.price),
+                                      imageURL <- cartItem.product.imageURL,
+                                      description <- cartItem.product.description!,
+                                      underSale <- cartItem.product.underSale,
+                                      quantity <- cartItem.quantity)
+            try! db.run(insert)
         }
+        else{
+            //try! db.run(cart.update(quantity <- quantValue+1))
+        }
+    }
 
     func loadCartItems(){
         for user in try! db.prepare(users) {
