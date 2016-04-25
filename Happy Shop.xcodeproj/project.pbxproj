@@ -15,6 +15,8 @@
 		A3911B571CCE5496003AA8E0 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B551CCE5496003AA8E0 /* CartManager.swift */; };
 		A3911B5A1CCE6E45003AA8E0 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B591CCE6E45003AA8E0 /* CartItemTableViewCell.swift */; };
 		A3911B5B1CCE6E45003AA8E0 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B591CCE6E45003AA8E0 /* CartItemTableViewCell.swift */; };
+		A3911B5E1CCE977B003AA8E0 /* SQLiteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B5D1CCE977B003AA8E0 /* SQLiteDataStore.swift */; };
+		A3911B5F1CCE977B003AA8E0 /* SQLiteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B5D1CCE977B003AA8E0 /* SQLiteDataStore.swift */; };
 		A3BB6BD81CCCA19B0049733A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BD71CCCA19B0049733A /* AppDelegate.swift */; };
 		A3BB6BDC1CCCA19B0049733A /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BDB1CCCA19B0049733A /* CartViewController.swift */; };
 		A3BB6BDF1CCCA19B0049733A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BB6BDD1CCCA19B0049733A /* Main.storyboard */; };
@@ -53,6 +55,7 @@
 		A3911B511CCE53BA003AA8E0 /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		A3911B551CCE5496003AA8E0 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		A3911B591CCE6E45003AA8E0 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
+		A3911B5D1CCE977B003AA8E0 /* SQLiteDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDataStore.swift; sourceTree = "<group>"; };
 		A3BB6BD41CCCA19B0049733A /* Happy Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BB6BD71CCCA19B0049733A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3BB6BDB1CCCA19B0049733A /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +135,14 @@
 			name = CustomCell;
 			sourceTree = "<group>";
 		};
+		A3911B5C1CCE976A003AA8E0 /* SqlLite */ = {
+			isa = PBXGroup;
+			children = (
+				A3911B5D1CCE977B003AA8E0 /* SQLiteDataStore.swift */,
+			);
+			name = SqlLite;
+			sourceTree = "<group>";
+		};
 		A3BB6BCB1CCCA19B0049733A = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +166,7 @@
 		A3BB6BD61CCCA19B0049733A /* Happy Shop */ = {
 			isa = PBXGroup;
 			children = (
+				A3911B5C1CCE976A003AA8E0 /* SqlLite */,
 				A3911B581CCE6E1C003AA8E0 /* CustomCell */,
 				A3911B541CCE5483003AA8E0 /* Cart Manager */,
 				A3BB6C011CCCDD980049733A /* Factories */,
@@ -256,6 +268,7 @@
 				TargetAttributes = {
 					A3BB6BD31CCCA19B0049733A = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 754J8QWE53;
 					};
 					A3BB6BE91CCCA19B0049733A = {
 						CreatedOnToolsVersion = 7.3;
@@ -411,6 +424,7 @@
 				A3BB6BFB1CCCA6480049733A /* Product.swift in Sources */,
 				A3BB6C101CCD140E0049733A /* ProductDetailViewController.swift in Sources */,
 				A3BB6BD81CCCA19B0049733A /* AppDelegate.swift in Sources */,
+				A3911B5E1CCE977B003AA8E0 /* SQLiteDataStore.swift in Sources */,
 				A3BB6C0A1CCCF1100049733A /* ProductCollectionViewCell.swift in Sources */,
 				A3BB6C051CCCED7C0049733A /* CategoriesViewController.swift in Sources */,
 			);
@@ -427,6 +441,7 @@
 				A3BB6C111CCD140E0049733A /* ProductDetailViewController.swift in Sources */,
 				A3BB6C0B1CCCF1100049733A /* ProductCollectionViewCell.swift in Sources */,
 				A3911B531CCE53BA003AA8E0 /* CartItem.swift in Sources */,
+				A3911B5F1CCE977B003AA8E0 /* SQLiteDataStore.swift in Sources */,
 				A3BB6BEF1CCCA19B0049733A /* Happy_ShopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,10 +566,13 @@
 			baseConfigurationReference = 80C71F25F9A0325DCEE77CC0 /* Pods-Happy Shop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Happy Shop/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aismobiles.Happy-Shop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -563,10 +581,13 @@
 			baseConfigurationReference = 2BE3F40BC9892AEFB4104BA6 /* Pods-Happy Shop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Happy Shop/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aismobiles.Happy-Shop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -19,6 +19,10 @@ public class CartManager {
     
     private var cartItems:[CartItem] = []
     
+    init(){
+        SQLiteDataStore.sharedInstance.loadCartItems()
+    }
+    
     // MARK: - Public Methods
     
     public func totalAmout() -> Float{
@@ -43,6 +47,7 @@ public class CartManager {
         let cartItem:CartItem = CartItem(product: product,quantity: quantity)
         cartItems.append(cartItem)
         
+        SQLiteDataStore.sharedInstance.insert(cartItem)
         NSNotificationCenter.defaultCenter().postNotificationName(CartNotifications.cartDidModifiedNotification, object: nil)
     }
     
