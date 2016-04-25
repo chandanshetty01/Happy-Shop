@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-320"/>
         </scene>
-        <!--Second-->
+        <!--CartViewController-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Happy_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" userLabel="CartViewController" customClass="CartViewController" customModule="Happy_Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -71,13 +71,105 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart is empty! Add items to the Cart" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U14-eo-Pkj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.12941176469999999" green="0.3921568627" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Lf-bC-DZz">
+                                <rect key="frame" x="0.0" y="22" width="600" height="440"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cartItem_cell_identifier" id="fqB-6w-XQr" customClass="CartItemTableViewCell" customModule="Happy_Shop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fqB-6w-XQr" id="hZ3-Ts-y7u">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-pK-cEM">
+                                                    <rect key="frame" x="8" y="0.0" width="42" height="43"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bR-cE-yhe">
+                                                    <rect key="frame" x="550" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="EiY-pK-cEM" firstAttribute="height" secondItem="hZ3-Ts-y7u" secondAttribute="height" id="12p-Kt-n0f"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="EiY-pK-cEM" secondAttribute="leading" id="5KL-MC-6HE"/>
+                                                <constraint firstItem="EiY-pK-cEM" firstAttribute="centerY" secondItem="hZ3-Ts-y7u" secondAttribute="centerY" id="7qG-By-HUx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1bR-cE-yhe" secondAttribute="trailing" id="8R9-8d-k6g"/>
+                                                <constraint firstItem="1bR-cE-yhe" firstAttribute="centerY" secondItem="EiY-pK-cEM" secondAttribute="centerY" id="juu-1Y-o7e"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="name" destination="EiY-pK-cEM" id="Gb2-Jv-2on"/>
+                                            <outlet property="priceLabel" destination="1bR-cE-yhe" id="FXZ-uT-bGU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="dpQ-LR-ANo"/>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="lhO-ob-RcM"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IS-he-FMv">
+                                <rect key="frame" x="10" y="470" width="580" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y18-le-uND">
+                                <rect key="frame" x="10" y="498" width="580" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Check Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleCheckOutButtonAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="n6D-g7-Gwf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92941176469999998" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="y18-le-uND" firstAttribute="centerX" secondItem="9Lf-bC-DZz" secondAttribute="centerX" id="DE7-j7-oyL"/>
+                            <constraint firstItem="U14-eo-Pkj" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Dez-dm-yre"/>
+                            <constraint firstItem="9Lf-bC-DZz" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="FwI-EM-bYz"/>
+                            <constraint firstItem="9IS-he-FMv" firstAttribute="centerX" secondItem="9Lf-bC-DZz" secondAttribute="centerX" id="gVn-qQ-F6V"/>
+                            <constraint firstItem="U14-eo-Pkj" firstAttribute="height" secondItem="QS5-Rx-YEW" secondAttribute="height" id="iZa-7V-fOb"/>
+                            <constraint firstItem="y18-le-uND" firstAttribute="width" secondItem="9Lf-bC-DZz" secondAttribute="width" constant="-20" id="keU-Kw-lMj"/>
+                            <constraint firstItem="9Lf-bC-DZz" firstAttribute="height" secondItem="QS5-Rx-YEW" secondAttribute="height" constant="-160" id="pDh-bP-YRC"/>
+                            <constraint firstItem="U14-eo-Pkj" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="qYW-zd-QP4"/>
+                            <constraint firstItem="y18-le-uND" firstAttribute="top" secondItem="9IS-he-FMv" secondAttribute="bottom" constant="8" id="rnc-Ty-jAL"/>
+                            <constraint firstItem="9IS-he-FMv" firstAttribute="width" secondItem="9Lf-bC-DZz" secondAttribute="width" constant="-20" id="sac-ws-hgP"/>
+                            <constraint firstItem="9IS-he-FMv" firstAttribute="top" secondItem="9Lf-bC-DZz" secondAttribute="bottom" constant="8" id="sjL-G6-nfI"/>
+                            <constraint firstItem="9Lf-bC-DZz" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="tAc-fD-gBj"/>
+                            <constraint firstItem="9Lf-bC-DZz" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" constant="22" id="tIB-m8-Iiv"/>
+                            <constraint firstItem="U14-eo-Pkj" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="v8C-8X-KLi"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="checkoutButton" destination="y18-le-uND" id="CgZ-eY-ibr"/>
+                        <outlet property="emptyCartLabel" destination="U14-eo-Pkj" id="qaJ-tX-Ml3"/>
+                        <outlet property="tableView" destination="9Lf-bC-DZz" id="IZ0-qP-6Pm"/>
+                        <outlet property="totalPriceLabel" destination="9IS-he-FMv" id="lTa-RU-Clm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104" y="378"/>
+            <point key="canvasLocation" x="750" y="337"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -98,11 +190,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--First-->
+        <!--Navigation Controller-->
         <scene sceneID="yOL-H6-608">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RQH-Uw-eH9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i2E-8U-6BZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -321,7 +413,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="cart" width="60" height="60"/>
     </resources>
 </document>

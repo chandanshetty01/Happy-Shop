@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import MBProgressHUD
 
-class CategoriesViewController : UIViewController ,UITableViewDelegate{
+class CategoriesViewController : UIViewController,UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +20,8 @@ class CategoriesViewController : UIViewController ,UITableViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategories();
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CategoriesViewController.handleCartDidModifiedNotification(_:)), name:CartNotifications.cartDidModifiedNotification, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -90,6 +92,16 @@ class CategoriesViewController : UIViewController ,UITableViewDelegate{
             //set properties on the destination view controller
             destinationVC.category = sender.textLabel!!.text
         }
+    }
+    
+    //MARK: Nofications
+    
+    func handleCartDidModifiedNotification(notification: NSNotification){
+        self.tabBarController?.tabBar.items![1].badgeValue = String(CartManager.sharedInstance.totalProducts())
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
 

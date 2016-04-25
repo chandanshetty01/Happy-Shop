@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Product {
+public struct Product {
     let id: String
     let name: String
     let category: String

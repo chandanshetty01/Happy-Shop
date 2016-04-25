@@ -83,5 +83,11 @@ class ProductDetailViewController : UIViewController{
     }
 
     @IBAction func addToCartButtonAction(sender: AnyObject) {
+        CartManager.sharedInstance.addProduct(product!,quantity:1)
     }
 }
+
+
+
+
+
