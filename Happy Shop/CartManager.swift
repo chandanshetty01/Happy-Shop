@@ -17,41 +17,37 @@ public class CartManager {
     static let sharedInstance = CartManager()
     // MARK: - private Properties
     
-    private var cartItems:[CartItem] = []
-    
     init(){
-        SQLiteDataStore.sharedInstance.loadCartItems()
     }
     
     // MARK: - Public Methods
     
-    public func totalAmout() -> Float{
-        var amount:Float = 0
-        
-        for cartItem:CartItem in cartItems {
-            amount =  amount + cartItem.product.price*Float(cartItem.quantity)
-        }
-        
-        return amount
+    public func totalAmout() -> Float64{
+       return SQLiteDataStore.sharedInstance.totalAmout()
     }
     
     public func totalProducts() -> Int{
-        return cartItems.count
+        return SQLiteDataStore.sharedInstance.totalProducts()
     }
     
-    public func clear(){
-        cartItems.removeAll()
+    public func clear() -> Int{
+        NSNotificationCenter.defaultCenter().postNotificationName(CartNotifications.cartDidModifiedNotification, object: nil)
+
+        return SQLiteDataStore.sharedInstance.clear()
     }
     
     public func addProduct(product:Product,quantity:Int) -> Void{
-        let cartItem:CartItem = CartItem(product: product,quantity: quantity)
-        cartItems.append(cartItem)
-        
-        SQLiteDataStore.sharedInstance.insert(cartItem)
+        SQLiteDataStore.sharedInstance.insert(CartItem(product: product,quantity: quantity))
         NSNotificationCenter.defaultCenter().postNotificationName(CartNotifications.cartDidModifiedNotification, object: nil)
     }
     
-    public func cartItemAtIndex(index:Int) -> CartItem {
-        return cartItems[index]
+    public func removeProduct(id:String) -> Int{
+        let status = SQLiteDataStore.sharedInstance.remove(id)
+        NSNotificationCenter.defaultCenter().postNotificationName(CartNotifications.cartDidModifiedNotification, object: nil)
+        return status
+    }
+    
+    public func allCartItems() -> [CartItem] {
+        return SQLiteDataStore.sharedInstance.getAllCartItems()
     }
 }

@@ -12,10 +12,20 @@ public struct Product {
     let id: String
     let name: String
     let category: String
-    let price: Float
+    let price: Float64
     let imageURL: String
     let description: String?
     let underSale: Bool
+    
+    init?(id:String,name:String,category:String,price:Float64,imageURL:String,description:String,underSale:Bool){
+        self.id = id
+        self.name = name
+        self.price = price
+        self.imageURL = imageURL
+        self.description = description
+        self.underSale = underSale
+        self.category = category
+    }
     
     init?(dictionary:NSDictionary) {
         
@@ -41,7 +51,7 @@ public struct Product {
         }
         
         if let price = dictionary["price"]{
-            self.price = Float(price as! NSNumber)
+            self.price = Float64(price as! NSNumber)
         }
         else{
             self.price = 0.0

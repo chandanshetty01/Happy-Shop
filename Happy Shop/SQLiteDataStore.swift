@@ -9,6 +9,7 @@
 import Foundation
 import SQLite
 
+
 class SQLiteDataStore {
     static let sharedInstance = SQLiteDataStore()
     
@@ -32,8 +33,6 @@ class SQLiteDataStore {
         
         db = try! Connection("\(path)/happyShop.sqlite3")
         
-
-
         try! db.run(users.create(ifNotExists:true) { t in
             t.column(id, primaryKey: true)
             t.column(name)
@@ -62,14 +61,48 @@ class SQLiteDataStore {
             try! db.run(insert)
         }
         else{
-            //try! db.run(cart.update(quantity <- quantValue+1))
+            let query = users.select(quantity)
+                .filter(id == cartItem.product.id)
+            for user in try! db.prepare(query) {
+               try! db.run(cart.update(quantity <- user[quantity]+1))
+            }
         }
     }
+    
+    func remove(inId:String) -> Int {
+        let row = users.filter(id == inId)
+        let status = try! db.run(row.delete())
+        return status
+    }
+    
+    func totalAmout() -> Float64{
+        var amount:Float64 = 0
+        
+        for cartItem in try! db.prepare(users) {
+            amount =  amount + cartItem[price]*Float64(cartItem[quantity])
+        }        
+        return amount
+    }
+    
+    func totalProducts() -> Int{
+        let count = db.scalar(users.count)
+        return count
+    }
+    
+    func clear() -> Int {
+        let status = try! db.run(users.delete())
+        return status
+    }
 
-    func loadCartItems(){
-        for user in try! db.prepare(users) {
-            print("id: \(user[id]), name: \(user[name]), email: \(user[category])")
-            // id: 1, name: Optional("Alice"), email: alice@mac.com
+    func getAllCartItems() -> [CartItem]{
+        var cartItems:[CartItem] = []
+
+        for cartItem in try! db.prepare(users) {
+            let product:Product = Product(id: cartItem[id], name: cartItem[name]!, category: cartItem[category], price: cartItem[price], imageURL: cartItem[imageURL], description: cartItem[description], underSale: cartItem[underSale])!
+            let cartItem:CartItem = CartItem(product:product,quantity:cartItem[quantity])
+            cartItems.append(cartItem)
         }
+        
+        return cartItems
     }
 }

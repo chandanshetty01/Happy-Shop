@@ -15,15 +15,22 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var emptyCartLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
+    var cartItems:[CartItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.checkoutButton.layer.cornerRadius = 5.0
+        cartItems = CartManager.sharedInstance.allCartItems()
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    
     override func viewWillAppear(animated: Bool) {
+        updateUI()
+    }
+    
+    func updateUI() {
         if CartManager.sharedInstance.totalProducts() == 0{
             self.emptyCartLabel.hidden = false
             self.tableView.hidden = true
@@ -42,9 +49,14 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             formatter.numberStyle = .CurrencyStyle
             formatter.locale = NSLocale.currentLocale()
             self.totalPriceLabel.text = "Total Price: \(formatter.stringFromNumber(price)!)"
-
+            
+            cartItems = CartManager.sharedInstance.allCartItems()
             self.tableView.reloadData()
         }
+    }
+    
+    func reloadData() {
+        updateUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,10 +82,22 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cartItem_cell_identifier", forIndexPath: indexPath) as! CartItemTableViewCell
         
-        let cartItem = CartManager.sharedInstance.cartItemAtIndex(indexPath.row)
+        let cartItem = cartItems[indexPath.row]
         cell.cartItem = cartItem
         
         return cell
+    }
+    
+    internal func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true;
+    }
+
+    internal func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let cartItem = cartItems[indexPath.row]
+            CartManager.sharedInstance.removeProduct(cartItem.product.id)
+            reloadData()
+        }
     }
     
     //MARK: Button actions

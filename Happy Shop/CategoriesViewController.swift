@@ -20,9 +20,9 @@ class CategoriesViewController : UIViewController,UITableViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategories();
-        
+        updateTabbarBadge()
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CategoriesViewController.handleCartDidModifiedNotification(_:)), name:CartNotifications.cartDidModifiedNotification, object: nil)
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -95,9 +95,17 @@ class CategoriesViewController : UIViewController,UITableViewDelegate{
     }
     
     //MARK: Nofications
-    
     func handleCartDidModifiedNotification(notification: NSNotification){
-        self.tabBarController?.tabBar.items![1].badgeValue = String(CartManager.sharedInstance.totalProducts())
+        updateTabbarBadge()
+    }
+    
+    func updateTabbarBadge() -> Void {
+        if CartManager.sharedInstance.totalProducts() > 0 {
+            self.tabBarController?.tabBar.items![1].badgeValue = String(CartManager.sharedInstance.totalProducts())
+        }
+        else{
+            self.tabBarController?.tabBar.items![1].badgeValue = nil
+        }
     }
     
     deinit {
