@@ -8,21 +8,21 @@
 
 import Foundation
 import UIKit
-import Alamofire
 import MBProgressHUD
 
-class ProductsViewController : UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class ProductsViewController : UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,ProductDataSourceDelegats {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    private let productFactory = ProductFactory()
-    var products: [Product] = []
     var category:String?
+    var productDatSource:ProductDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = self.category
 
-        loadProducts()
+        productDatSource = ProductDataSource(category:self.category!,delegate:self)
+        
+        productDatSource!.requestProducts()
         self.navigationController?.navigationBarHidden = false
     }
     
@@ -31,20 +31,17 @@ class ProductsViewController : UIViewController,UICollectionViewDelegate,UIColle
         // Dispose of any resources that can be recreated.
     }
     
-    private func loadProducts(){
+    //MARK: Product datasource Delegates
+    func productsDidLoaded(){
+        self.collectionView.reloadData()
+    }
+    
+    func productDidStartedLoading(){
         showLoadingHUD()
-        
-        Alamofire.request(.GET, "http://sephora-mobile-takehome-2.herokuapp.com/api/v1/products.json", parameters: ["category": self.category!])
-            .responseJSON { response in
-                
-                self.hideLoadingHUD()
-                
-                if let value = response.result.value as? NSDictionary {
-                    let productsArray:NSArray = value["products"] as! NSArray
-                    self.products = self.productFactory.productsFromDictionaryArray(productsArray)
-                    self.collectionView!.reloadData()
-                }
-        }
+    }
+    
+    func productDidEndloading(){
+        hideLoadingHUD()
     }
     
     private func showLoadingHUD() {
@@ -61,13 +58,14 @@ class ProductsViewController : UIViewController,UICollectionViewDelegate,UIColle
     }
     
     internal func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.products.count
+        return productDatSource!.totalNumberOfProducts()
     }
     
     internal func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("product_cell_identifier", forIndexPath: indexPath) as! ProductCollectionViewCell
-        let product = products[indexPath.row]
+        
+        let product = productDatSource!.productAtIndex(indexPath.row)
 
         // Configure the cell
         cell.product = product

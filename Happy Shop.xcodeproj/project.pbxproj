@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		64E565BAF0B52C4B3D58F358 /* Pods_Happy_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61394DCA82E6911D39EDDFCB /* Pods_Happy_Shop.framework */; };
 		823BE493C4A4FECC2E8B3F2A /* Pods_Happy_ShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B74F44F3594BCEB7FEEA4344 /* Pods_Happy_ShopTests.framework */; };
+		A33289451CD3029300BC9A15 /* ProductDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33289441CD3029300BC9A15 /* ProductDatasource.swift */; };
+		A33289461CD3029300BC9A15 /* ProductDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33289441CD3029300BC9A15 /* ProductDatasource.swift */; };
+		A33289471CD30B1900BC9A15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BD71CCCA19B0049733A /* AppDelegate.swift */; };
+		A33289481CD30B1900BC9A15 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C041CCCED7C0049733A /* CategoriesViewController.swift */; };
+		A33289491CD30B1D00BC9A15 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BDB1CCCA19B0049733A /* CartViewController.swift */; };
+		A332894A1CD30B2300BC9A15 /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6C021CCCDDA80049733A /* CategoryFactory.swift */; };
+		A332894B1CD30B5600BC9A15 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BFA1CCCA6480049733A /* Product.swift */; };
+		A332894C1CD30B5600BC9A15 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB6BFC1CCCA7CF0049733A /* Category.swift */; };
+		A332894E1CD30C0B00BC9A15 /* ProductDataSouceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332894D1CD30C0B00BC9A15 /* ProductDataSouceTests.swift */; };
 		A3911B521CCE53BA003AA8E0 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B511CCE53BA003AA8E0 /* CartItem.swift */; };
 		A3911B531CCE53BA003AA8E0 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B511CCE53BA003AA8E0 /* CartItem.swift */; };
 		A3911B561CCE5496003AA8E0 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3911B551CCE5496003AA8E0 /* CartManager.swift */; };
@@ -52,6 +61,8 @@
 		2BE3F40BC9892AEFB4104BA6 /* Pods-Happy Shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Happy Shop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Happy Shop/Pods-Happy Shop.release.xcconfig"; sourceTree = "<group>"; };
 		61394DCA82E6911D39EDDFCB /* Pods_Happy_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Happy_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C71F25F9A0325DCEE77CC0 /* Pods-Happy Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Happy Shop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Happy Shop/Pods-Happy Shop.debug.xcconfig"; sourceTree = "<group>"; };
+		A33289441CD3029300BC9A15 /* ProductDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDatasource.swift; sourceTree = "<group>"; };
+		A332894D1CD30C0B00BC9A15 /* ProductDataSouceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDataSouceTests.swift; sourceTree = "<group>"; };
 		A3911B511CCE53BA003AA8E0 /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		A3911B551CCE5496003AA8E0 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		A3911B591CCE6E45003AA8E0 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +129,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A33289431CD301C100BC9A15 /* Product DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A33289441CD3029300BC9A15 /* ProductDatasource.swift */,
+			);
+			name = "Product DataSource";
+			sourceTree = "<group>";
+		};
 		A3911B541CCE5483003AA8E0 /* Cart Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +185,7 @@
 		A3BB6BD61CCCA19B0049733A /* Happy Shop */ = {
 			isa = PBXGroup;
 			children = (
+				A33289431CD301C100BC9A15 /* Product DataSource */,
 				A3911B5C1CCE976A003AA8E0 /* SqlLite */,
 				A3911B581CCE6E1C003AA8E0 /* CustomCell */,
 				A3911B541CCE5483003AA8E0 /* Cart Manager */,
@@ -189,6 +209,7 @@
 			children = (
 				A3BB6BEE1CCCA19B0049733A /* Happy_ShopTests.swift */,
 				A3BB6BF01CCCA19B0049733A /* Info.plist */,
+				A332894D1CD30C0B00BC9A15 /* ProductDataSouceTests.swift */,
 			);
 			path = "Happy ShopTests";
 			sourceTree = "<group>";
@@ -427,6 +448,7 @@
 				A3911B5E1CCE977B003AA8E0 /* SQLiteDataStore.swift in Sources */,
 				A3BB6C0A1CCCF1100049733A /* ProductCollectionViewCell.swift in Sources */,
 				A3BB6C051CCCED7C0049733A /* CategoriesViewController.swift in Sources */,
+				A33289451CD3029300BC9A15 /* ProductDatasource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,12 +456,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33289471CD30B1900BC9A15 /* AppDelegate.swift in Sources */,
 				A3BB6C0E1CCCF48D0049733A /* ProductFactory.swift in Sources */,
+				A332894B1CD30B5600BC9A15 /* Product.swift in Sources */,
+				A33289481CD30B1900BC9A15 /* CategoriesViewController.swift in Sources */,
 				A3BB6C081CCCEE400049733A /* ProductsViewController.swift in Sources */,
 				A3911B5B1CCE6E45003AA8E0 /* CartItemTableViewCell.swift in Sources */,
 				A3911B571CCE5496003AA8E0 /* CartManager.swift in Sources */,
+				A332894C1CD30B5600BC9A15 /* Category.swift in Sources */,
+				A33289491CD30B1D00BC9A15 /* CartViewController.swift in Sources */,
+				A33289461CD3029300BC9A15 /* ProductDatasource.swift in Sources */,
 				A3BB6C111CCD140E0049733A /* ProductDetailViewController.swift in Sources */,
 				A3BB6C0B1CCCF1100049733A /* ProductCollectionViewCell.swift in Sources */,
+				A332894E1CD30C0B00BC9A15 /* ProductDataSouceTests.swift in Sources */,
+				A332894A1CD30B2300BC9A15 /* CategoryFactory.swift in Sources */,
 				A3911B531CCE53BA003AA8E0 /* CartItem.swift in Sources */,
 				A3911B5F1CCE977B003AA8E0 /* SQLiteDataStore.swift in Sources */,
 				A3BB6BEF1CCCA19B0049733A /* Happy_ShopTests.swift in Sources */,
