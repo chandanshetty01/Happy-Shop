@@ -42,7 +42,7 @@ public class ProductDataSource {
                     
                     self.products = self.productFactory.productsFromDictionaryArray(productsArray)
 
-                    guard (self.products.count > 1) else{
+                    guard (self.products.count > 0) else{
                         return;
                     }
                     
